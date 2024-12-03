@@ -1,0 +1,8 @@
+/* BioMarketingComponent.css */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+.animals-sec {
+  background: linear-gradient(to bottom, rgb(201, 141, 207), rgba(13, 21, 253, 0.14)), #ffffff;
+
+}
