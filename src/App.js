@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react';
-import emailjs from '@emailjs/browser';
+import React, { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 import "bootstrap/dist/css/bootstrap.min.css"; // Ensure Bootstrap CSS is imported
 import logo from "./assets/logo.png";
 import animals from "./assets/animals.png";
@@ -60,19 +60,19 @@ function App() {
     if (isSubmitting) return; // Prevent multiple submissions during the timeout
 
     emailjs
-      .sendForm('service_y9mhonh', 'template_y6kwk2a', form.current, {
-        publicKey: 'aetNBQgTvUtcgvrCu',
+      .sendForm("service_y9mhonh", "template_y6kwk2a", form.current, {
+        publicKey: "aetNBQgTvUtcgvrCu",
       })
       .then(
         () => {
-          console.log('SUCCESS!');
+          console.log("SUCCESS!");
           form.current.reset(); // Clear the form
           setIsSubmitting(true); // Start the timeout
           setTimeout(() => setIsSubmitting(false), 60000); // Reset submission lock after 1 minute
         },
         (error) => {
-          console.log('FAILED...', error.text);
-        },
+          console.log("FAILED...", error.text);
+        }
       );
   };
   return (
@@ -232,17 +232,17 @@ function App() {
                       13/11/2024
                     </small>
                   </div>
-                  <div className="ms-auto">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <span
-                        key={star}
-                        className="text-warning"
-                        style={{ fontSize: "40px" }}
-                      >
-                        ★
-                      </span>
-                    ))}
-                  </div>
+                </div>
+                <div className="ms-auto">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <span
+                      key={star}
+                      className="text-warning"
+                      style={{ fontSize: "40px" }}
+                    >
+                      ★
+                    </span>
+                  ))}
                 </div>
                 <p
                   style={{
