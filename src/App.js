@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
 import "bootstrap/dist/css/bootstrap.min.css"; // Ensure Bootstrap CSS is imported
 import logo from "./assets/logo.png";
 import animals from "./assets/animals.png";
@@ -50,6 +51,30 @@ const benefits = [
 ];
 
 function App() {
+  const form = useRef();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    if (isSubmitting) return; // Prevent multiple submissions during the timeout
+
+    emailjs
+      .sendForm('service_y9mhonh', 'template_y6kwk2a', form.current, {
+        publicKey: 'aetNBQgTvUtcgvrCu',
+      })
+      .then(
+        () => {
+          console.log('SUCCESS!');
+          form.current.reset(); // Clear the form
+          setIsSubmitting(true); // Start the timeout
+          setTimeout(() => setIsSubmitting(false), 60000); // Reset submission lock after 1 minute
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+        },
+      );
+  };
   return (
     <div className="container-fluid p-0 overflow-hidden">
       {/* Header section with a background image as a full-width image */}
@@ -331,10 +356,14 @@ function App() {
         >
           Свържи се с нас още сега !!!
         </h1>
-        {/* Input Group */}
-        <div
-          className="input-group p-3"
+        <form
+          ref={form}
+          onSubmit={sendEmail}
           style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "16px",
             maxWidth: "956px",
             width: "80%",
             borderRadius: "50px",
@@ -343,18 +372,25 @@ function App() {
           }}
         >
           <input
-            type="text"
+            type="email"
+            name="user_email"
             className="form-control border-0 px-4"
             placeholder="Your Email"
             style={{
+              flex: 1,
               fontFamily: "IBM Plex Sans",
               fontWeight: 500,
               fontSize: "1.5rem",
               lineHeight: "1.3",
               color: "#0360d9",
+              outline: "none",
+              border: "none",
             }}
+            required
           />
           <button
+            type="submit"
+            disabled={isSubmitting}
             className="btn d-flex align-items-center justify-content-center fs-1"
             style={{
               backgroundColor: "#0360d9",
@@ -362,12 +398,18 @@ function App() {
               width: "56px",
               height: "56px",
               color: "#fff",
-              textAlign: "center"
+              textAlign: "center",
+              border: "none",
+              marginLeft: "8px",
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
-            →
+            &#8594;
           </button>
-        </div>
+        </form>
       </div>
       <footer
         className="container-fluid text-white mt-5 py-5"
