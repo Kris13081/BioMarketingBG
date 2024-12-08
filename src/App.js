@@ -404,6 +404,7 @@ function App() {
               cursor: "pointer",
               display: "flex",
               alignItems: "center",
+              paddingBottom: "15px",
               justifyContent: "center",
             }}
           >
