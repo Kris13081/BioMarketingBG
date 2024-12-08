@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import "bootstrap/dist/css/bootstrap.min.css"; // Ensure Bootstrap CSS is imported
+import ProductSection from "./ProductSection.js";
 import logo from "./assets/logo.png";
 import animals from "./assets/animals.png";
 import protection from "./assets/protection.png";
@@ -48,6 +49,27 @@ const benefits = [
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+];
+
+const products = [
+  {
+    id: 1,
+    name: "Product A",
+    description: "Description of Product A",
+    price: 25.99,
+  },
+  {
+    id: 2,
+    name: "Product B",
+    description: "Description of Product B",
+    price: 19.99,
+  },
+  {
+    id: 3,
+    name: "Product C",
+    description: "Description of Product C",
+    price: 34.99,
+  },
 ];
 
 function App() {
@@ -129,6 +151,12 @@ function App() {
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="border-2 border-bottom border-gray m-3">
+        {/* Other sections of the App */}
+        <ProductSection products={products} />
+        {/* Reviews Section */}
       </div>
 
       {/* Choose us section */}
@@ -558,5 +586,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
