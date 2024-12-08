@@ -6,3 +6,13 @@
   background: linear-gradient(to bottom, rgb(201, 141, 207), rgba(13, 21, 253, 0.14)), #ffffff;
 
 }
+
+.card {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  z-index: 1; /* Ensures hovered card appears above others */
+}
