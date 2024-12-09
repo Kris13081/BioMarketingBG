@@ -16,3 +16,122 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   z-index: 1; /* Ensures hovered card appears above others */
 }
+
+/* PRODUCT CARDS */
+/* General styling for the product cards */
+.product-card .card {
+  border-radius: 12px;
+  background-color: #f8f9fa;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.product-card .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.product-card .card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+.product-card .card-title:hover {
+  color: #007bff;
+}
+
+.product-card .card-text {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.product-card .btn-outline-primary {
+  border-color: #007bff;
+  color: #007bff;
+  font-weight: 600;
+  transition: background-color 0.3s, color 0.3s;
+  border-radius: 50px;
+  padding: 10px;
+}
+
+.product-card .btn-outline-primary:hover {
+  background-color: #007bff;
+  color: white;
+  border-color: #0056b3;
+}
+
+.product-card .card-img-top {
+  border-bottom: 4px solid #007bff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Adding a subtle hover animation for the image */
+.product-card .card-img-top:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+/* Optional: Shadow and hover effects */
+.product-card .card-body {
+  padding: 1.5rem;
+}
+
+
+/* ------------- */
+
+/* POP UP WINDOW */
+.modal-content {
+  transition: transform 0.3s ease-in-out;
+}
+
+.modal-content:hover {
+  transform: scale(1.02);
+}
+
+.modal-header {
+  background: linear-gradient(to right, #e3f2fd, #bbdefb);
+  border-radius: 15px 15px 0 0;
+}
+
+.modal-title {
+  color: #004085;
+  font-size: 1.5rem;
+}
+
+.modal-body {
+  background: #f9f9f9;
+  border-radius: 10px;
+}
+
+#pop-img {
+  border: 4px solid #ddd;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-outline-primary {
+  border: 2px solid #007bff;
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+  border-radius: 30px;
+}
+
+.btn-outline-primary:hover {
+  background-color: #0056b3;
+  box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.product-description {
+  padding: 1rem;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+/* ----------------- */
