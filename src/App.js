@@ -5,16 +5,16 @@ import ProductSection from "./ProductSection.js";
 import logo from "./assets/logo.png";
 import animals from "./assets/animals.png";
 import protection from "./assets/protection.png";
-import lungs from "./assets/lungs.png";
+import eye from "./assets/eye.png";
 import food from "./assets/food.png";
 import mind from "./assets/mind.png";
 import doge from "./assets/vetdoge.jpg";
 import tic from "./assets/tic.png";
 import doge2 from "./assets/doge2.jpeg";
 
-import ocuprotect from './assets/products/OcuProtect.png'
-import lysimun from './assets/products/Lysimun.png'
-import clerapliq from './assets/products/Clerapliq.png'
+import ocuprotect from "./assets/products/OcuProtect.png";
+import lysimun from "./assets/products/Lysimun.png";
+import clerapliq from "./assets/products/Clerapliq.png";
 
 import "./App.css";
 
@@ -24,36 +24,37 @@ const features = [
     img: protection,
     title: "Натурални съставки",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sem velit viverra amet faucibus.",
+      "Решения за проблеми свързани с основни болести и неприятели при домашните животни и пчелите.",
   },
   {
-    img: lungs,
-    title: "100% възтановяване",
+    img: eye,
+    title: "Висока ефективност",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sem velit viverra amet faucibus.",
+      "Продуктите ни имат голяма ефективност върху проблемите на пациентите. При правилно приложение и употреба сами ще се обедите в ефикасността им.",
     highlighted: true,
   },
   {
     img: food,
     title: "Натурални съставки",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sem velit viverra amet faucibus.",
+      "Всичките ветеринарни и пчеларски продукти са с изчистен състав, съдържат естествени съставки и са без ГМО.",
   },
   {
     img: mind,
-    title: "Без травми",
+    title: "Подходящи за всички",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sem velit viverra amet faucibus.",
+      "Нашите продукти за подходящи както за обичайните домашни любимци кучета и котки, декоративни и едри животни, така и за екзотични видове.",
   },
 ];
 
 // Data for the benefits list
 const benefits = [
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  "Достъпни цени.",
+  "Грижим се клиентите.",
+  "Работим с утвърдени производители.",
+  "Предлагаме иновативни продукти с високо качество.",
+  "Ще получите професионално обслужване и лоялност.",
+  "Добра репутация и отзиви от нашите клиенти.",
 ];
 
 const products = [
@@ -98,10 +99,10 @@ const products = [
     price: 25.99,
   },
   {
-    "id": 2,
-    "image": lysimun,
-    "name": "Lysimun 100 ml",
-    "description": `
+    id: 2,
+    image: lysimun,
+    name: "Lysimun 100 ml",
+    description: `
 <h5>Имуностимулатор за котки</h5>
 <p>Лизимун е хранителна добавка за котки под формата на капки, прилагащ се с храната или директно в устата. Лизимун засилва имунната система и намалява тежестта на заболяването, както и броя на рецидивите.</p>
 <h5>Състав</h5>
@@ -126,14 +127,13 @@ const products = [
   <li>котки 4-5 кг 1 мл 1-2 дневно</li>
 </ul>
 `,
-    "price": 30.99
-}
-,
-{
-  "id": 3,
-  "image": clerapliq,
-  "name": "Clerapliq",
-  "description": `
+    price: 30.99,
+  },
+  {
+    id: 3,
+    image: clerapliq,
+    name: "Clerapliq",
+    description: `
 <h5>КЛЕРАПЛИК® Капки за очи - локален заместител на екстрацелуларния матрикс</h5>
 <p>Съставки (мг/мл): RGTA ……… 0,1 мг (Карбоксиметилглюкоза-сулфат-полимери RGTA®) Eксципиенти q.s … 1 мл.</p>
 <h5>Свойства</h5>
@@ -149,8 +149,8 @@ const products = [
 <h5>Опаковка</h5>
 <p>Кутия с 1 саше с 5 стерилни единични дози х 0.33 мл.</p>
 `,
-  "price": 35.99
-},
+    price: 35.99,
+  },
 ];
 
 function App() {
@@ -533,30 +533,6 @@ function App() {
                 className="fw-semibold mb-3"
                 style={{ fontFamily: "IBM Plex Sans", fontSize: "1.5rem" }}
               >
-                Био Маркетинг България
-              </h2>
-              <p
-                className="mb-3"
-                style={{
-                  fontFamily: "IBM Plex Sans",
-                  fontWeight: 400,
-                  fontSize: "1rem",
-                  lineHeight: "1.3",
-                }}
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nec
-                risus feugiat lectus risus sed ullamcorper. Auctor semper
-                fermentum volutpat integer vel. In rhoncus elementum nunc,
-                malesuada mi sed. Nibh est sit.
-              </p>
-            </div>
-
-            {/* Section 2 */}
-            <div className="col-md-4 mb-4">
-              <h2
-                className="fw-semibold mb-3"
-                style={{ fontFamily: "IBM Plex Sans", fontSize: "1.5rem" }}
-              >
                 Useful Links
               </h2>
               <a
@@ -605,13 +581,55 @@ function App() {
               </a>
             </div>
 
+            {/* Section 2 */}
+            <div className="col-md-4 mb-4">
+              <h2
+                className="fw-semibold mb-3"
+                style={{ fontFamily: "IBM Plex Sans", fontSize: "1.5rem" }}
+              >
+                Контакти:
+              </h2>
+              <a
+                href="#"
+                className="text-white text-decoration-none d-block mb-2"
+                style={{
+                  fontFamily: "IBM Plex Sans",
+                  fontWeight: 500,
+                  fontSize: "1rem",
+                }}
+              >
+                Търговски представител: Деница Стефанова
+              </a>
+              <a
+                href="#"
+                className="text-white text-decoration-none d-block mb-2"
+                style={{
+                  fontFamily: "IBM Plex Sans",
+                  fontWeight: 500,
+                  fontSize: "1rem",
+                }}
+              >
+                тел: 0889 249 271
+              </a>
+              <a
+                href="#"
+                className="text-white text-decoration-none d-block mb-2"
+                style={{
+                  fontFamily: "IBM Plex Sans",
+                  fontWeight: 500,
+                  fontSize: "1rem",
+                }}
+              >
+                e-mail: dstefanova.biomarketingbg@gmail.com
+              </a>
+            </div>
+
             {/* Section 3 */}
             <div className="col-md-4 mb-4">
               <h2
                 className="fw-semibold mb-3"
                 style={{ fontFamily: "IBM Plex Sans", fontSize: "1.5rem" }}
               >
-                Contact
               </h2>
               <p
                 className="mb-2"
@@ -622,7 +640,7 @@ function App() {
                   lineHeight: "1.3",
                 }}
               >
-                Email: info@biomarketing.bg
+                Управител: д-р Ивелин Маринов
               </p>
               <p
                 className="mb-2"
@@ -633,9 +651,10 @@ function App() {
                   lineHeight: "1.3",
                 }}
               >
-                Phone: +359 888 123 456
+                e-mail: biomarketingbg@gmail.com
               </p>
               <p
+                className="mb-2"
                 style={{
                   fontFamily: "IBM Plex Sans",
                   fontWeight: 400,
@@ -643,8 +662,19 @@ function App() {
                   lineHeight: "1.3",
                 }}
               >
-                Address: Sofia, Bulgaria
+                тел: 0899 181 855
               </p>
+              <a
+                href="https://maps.app.goo.gl/VQYQ7Bae13H3GBsf7"
+                className="text-white text-decoration-none d-block mb-2"
+                style={{
+                  fontFamily: "IBM Plex Sans",
+                  fontWeight: 500,
+                  fontSize: "1rem",
+                }}
+              >
+                Адрес: гр. София, р-н Красно село, ул.Топли дол, 4, вх. А, ет. 2"
+                </a>
             </div>
           </div>
 
@@ -667,6 +697,5 @@ function App() {
     </div>
   );
 }
-
 
 export default App;
