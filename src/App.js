@@ -1,157 +1,20 @@
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import "bootstrap/dist/css/bootstrap.min.css"; // Ensure Bootstrap CSS is imported
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 import ProductSection from "./ProductSection.js";
 import logo from "./assets/logo.png";
 import animals from "./assets/animals.png";
-import protection from "./assets/protection.png";
-import eye from "./assets/eye.png";
-import food from "./assets/food.png";
-import mind from "./assets/mind.png";
 import doge from "./assets/vetdoge.jpg";
 import tic from "./assets/tic.png";
 import doge2 from "./assets/doge2.jpeg";
-
-import ocuprotect from "./assets/products/OcuProtect.png";
-import lysimun from "./assets/products/Lysimun.png";
-import clerapliq from "./assets/products/Clerapliq.png";
-
-import "./App.css";
-
-// Data for the feature cards
-const features = [
-  {
-    img: protection,
-    title: "Натурални съставки",
-    description:
-      "Решения за проблеми свързани с основни болести и неприятели при домашните животни и пчелите.",
-  },
-  {
-    img: eye,
-    title: "Висока ефективност",
-    description:
-      "Продуктите ни имат голяма ефективност върху проблемите на пациентите. При правилно приложение и употреба сами ще се обедите в ефикасността им.",
-    highlighted: true,
-  },
-  {
-    img: food,
-    title: "Натурални съставки",
-    description:
-      "Всичките ветеринарни и пчеларски продукти са с изчистен състав, съдържат естествени съставки и са без ГМО.",
-  },
-  {
-    img: mind,
-    title: "Подходящи за всички",
-    description:
-      "Нашите продукти за подходящи както за обичайните домашни любимци кучета и котки, декоративни и едри животни, така и за екзотични видове.",
-  },
-];
-
-// Data for the benefits list
-const benefits = [
-  "Достъпни цени.",
-  "Грижим се клиентите.",
-  "Работим с утвърдени производители.",
-  "Предлагаме иновативни продукти с високо качество.",
-  "Ще получите професионално обслужване и лоялност.",
-  "Добра репутация и отзиви от нашите клиенти.",
-];
-
-const products = [
-  {
-    id: 1,
-    image: ocuprotect,
-    name: "OcuProtect 15 ml",
-    description: `
-<h5>Стерилен очен разтвор за овлажняване на очната повърхност. </h5>
-<p>OcuProtect очни капки е разтвор съдържащ натурални биологични съставки, който овлажнява роговицата и образува защитен филм върху повърхността на окото, като по този начин се подобрява клетъчното хранене и се подпомага възстановяването на роговичния епител.</p>
-<h5>Състав</h5>
-<ul>
-  <li>Helix Aspersa екстракт от мускус - 3%</li>
-  <li>PEG / PPG Co-Polymer - 1%</li>
-  <li>Хиалуронова киселина - 0.1%</li>
-  <li>Натриев EDTA - 0.1%</li>
-  <li>N-хидроксиметилглицинат - 0,001%</li>
-  <li>Стерилен изотоничен разтвор, буфериран до рН 7,2.</li>
-</ul>
-<h5>Терапевтични показния</h5>
-<ul>
-  <li>Сух кератоконюнктивит</li>
-  <li>Алергични конюнктивити</li>
-  <li>При изсъхване на очната повърхност при брахицефалните породи кучета</li>
-  <li>При котки предразположени към очни проблеми</li>
-  <li>По време на лечение на окото – медицински манипулации; хирургични интервенции</li>
-  <li>При неблагоприятни външни условия (полени, вятър, ниска влажност и др.), оказващи директно неблагоприятно влияние върху очната повърхност</li>
-</ul>
-<h5>OcuProtect:</h5>
-<ul>
-  <li>Защитава окото от изсъхване</li>
-  <li>Незабавно намалява клиничните симптоми свързани със сухотата на окото</li>
-  <li>Подпомага клетъчното хранене и възстановяване на епитела</li>
-  <li>Намалява зачервяването и възпалението на роговицата и конюнктивата</li>
-  <li>Позволява успоредно приложение с друга терапия</li>
-  <li>Не сензибилизира роговичният епител</li>
-  <li>Прилага се при всички видове животни</li>
-</ul>
-<h5>Приложение</h5>
-<p>Начин на приложение - 2-3 пъти дневно по 1-2 капки във всяко око</p>
-`,
-    price: 27.45,
-  },
-  {
-    id: 2,
-    image: lysimun,
-    name: "Lysimun 100 ml",
-    description: `
-<h5>Имуностимулатор за котки</h5>
-<p>Лизимун е хранителна добавка за котки под формата на капки, прилагащ се с храната или директно в устата. Лизимун засилва имунната система и намалява тежестта на заболяването, както и броя на рецидивите.</p>
-<h5>Състав</h5>
-<ul>
-  <li>L-лизин (монохидрохлорид) 50,000 mg ≈ 50 mg/ml</li>
-  <li>Витамин В5 600 mg</li>
-  <li>Витамин В6 100 mg</li>
-  <li>Витамин В12 100 μg</li>
-  <li>Дрожди-фосфо (β) глюкан липозомен комплекс 1,3 / 1,6 ß-глюкани</li>
-  <li>лактоферин</li>
-</ul>
-<h5>Свойства</h5>
-<ul>
-  <li>Л-лизинът притежава силно противовирусно действие, особено по отношение на херпес вирусите и калицивирусите при котки. Заедно с лактоферин намаляват продължителността на боледуване и последващ рецидив.</li>
-  <li>Фосфо (β) глюкан липозомният комплекс (1,3 / 1,6 ß-глюкани) повишава активността на макрофагите и серумният IgA.</li>
-  <li>Витамините усилват енергийния метаболизъм и подпомагат за по-бързото възтановяване на организма.</li>
-</ul>
-<h5>Приложение</h5>
-<ul>
-  <li>котенца 0.25 мл 1-2 дневно</li>
-  <li>котки 1-3 кг 0.5 мл 1-2 дневно</li>
-  <li>котки 4-5 кг 1 мл 1-2 дневно</li>
-</ul>
-`,
-    price: 38.70,
-  },
-  {
-    id: 3,
-    image: clerapliq,
-    name: "Clerapliq",
-    description: `
-<h5>КЛЕРАПЛИК® Капки за очи - локален заместител на екстрацелуларния матрикс</h5>
-<p>Съставки (мг/мл): RGTA ……… 0,1 мг (Карбоксиметилглюкоза-сулфат-полимери RGTA®) Eксципиенти q.s … 1 мл.</p>
-<h5>Свойства</h5>
-<p>Карбоксиметилглюкоза-сулфат-полимерите RGTA® са биополимери, много близки до структурните хепаран-сулфати. Хепаран-сулфатите представляват опорната точка в екстрацелуларния матрикс, необходима на физиологичните фактори за тъканното възстановяване и участват в защитата на екстрацелуларния матрикс, необходима за деленето на клетките и възстановяването на роговицата. В роговичните лезии, хепаран-сулфатите биват унищожени от ензимите, свързани с възпалението. RGTA® заменя унищожените хепаран-сулфати, подсигурявайки заздравяването на роговицата. Подобряването на качеството на екстрацелуларния матрикс спомага за намаляването на дискомфорта при животното.</p>
-<h5>Видове животни</h5>
-<p>КЛЕРАПЛИК® е подходящ за употреба при котки, кучета, спортни и състезателни коне и екзотични животни.</p>
-<h5>Инструкции</h5>
-<p>За накапване в очите. По 1-2 капки във всяко око на всеки два дни. Ежедневна употреба не се препоръчва. Честотата може да бъде намалена по преценка на вашия ветеринарен лекар. При употреба на други продукти за очи, първо прилагайте КЛЕРАПЛИК® и изчакайте 2-3 минути преди прилагането на следващия продукт. Продължителността на употреба може да варира от една до няколко седмици. Вашият ветеринарен лекар може да приспособи инструкциите за употреба. Следвайте неговите препоръки.</p>
-<h5>Начин на съхранение</h5>
-<p>Продуктът се съхранява в оригиналната опаковка при температура 4℃ - 25℃. Изхвърлете пипетата след употреба. Разтворът не съдържа консерванти или оцветители.</p>
-<h5>Категория</h5>
-<p>ВЕТЕРИНАРЕН ХИГИЕНЕН ПРОДУКТ ЗА ОЧИ, ИЗПОЛЗВАН КАТО ЗАМЕСТИТЕЛ НА ЕКСТРАЦЕЛУЛАРНИЯ МАТРИКС.</p>
-<h5>Опаковка</h5>
-<p>Кутия с 1 саше с 5 стерилни единични дози х 0.33 мл.</p>
-`,
-    price: 35.10,
-  },
-];
+import profileWoman from "./assets/users/woman.png"
+import profileBoy from "./assets/users/boy.png"
+import profileMan from "./assets/users/man.png"
+import profileUser from "./assets/users/user.png"
+import { features } from "./data/features";
+import { benefits } from "./data/benefits";
+import { products } from "./data/products";
 
 function App() {
   const form = useRef();
@@ -169,9 +32,9 @@ function App() {
       .then(
         () => {
           console.log("SUCCESS!");
-          form.current.reset(); // Clear the form
-          setIsSubmitting(true); // Start the timeout
-          setTimeout(() => setIsSubmitting(false), 60000); // Reset submission lock after 1 minute
+          form.current.reset();
+          setIsSubmitting(true);
+          setTimeout(() => setIsSubmitting(false), 60000);
         },
         (error) => {
           console.log("FAILED...", error.text);
@@ -287,19 +150,27 @@ function App() {
                 color: "#2e2e2eff",
               }}
             >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sem velit
-              viverra amet faucibus.
+              Ценим мнението на нашите клиенти, ще се радваме да чуем и вашето!
             </p>
             <div className="d-flex align-items-center m-3">
-              {[7, 8, 9].map((id) => (
                 <img
-                  key={id}
-                  src={`https://placeholder.pics/svg?${id}`}
+                  src={profileBoy}
                   alt="avatar"
                   className="rounded-circle"
                   style={{ width: "52px", height: "52px", marginRight: "5px" }}
                 />
-              ))}
+                <img
+                  src={profileUser}
+                  alt="avatar"
+                  className="rounded-circle"
+                  style={{ width: "52px", height: "52px", marginRight: "5px" }}
+                />
+                <img
+                  src={profileMan}
+                  alt="avatar"
+                  className="rounded-circle"
+                  style={{ width: "52px", height: "52px", marginRight: "5px" }}
+                />
               <span
                 style={{
                   fontWeight: "600",
@@ -308,7 +179,7 @@ function App() {
                   color: "#2e2e2eff",
                 }}
               >
-                100+ Reviews
+                100+ Доволни клиенти
               </span>
             </div>
           </div>
@@ -317,7 +188,7 @@ function App() {
               <div className="card-body">
                 <div className="d-flex align-items-center mb-3">
                   <img
-                    src="https://dashboard.codeparrot.ai/api/assets/Z0zDg3FEV176CUiG"
+                    src={profileWoman}
                     alt="avatar"
                     className="rounded-circle"
                     style={{
@@ -360,11 +231,7 @@ function App() {
                     color: "#2e2e2eff",
                   }}
                 >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sem
-                  velit viverra amet faucibus. Lorem ipsum dolor sit amet,
-                  consectetur adipiscing elit. Sem velit viverra amet faucibus.
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sem
-                  velit viverra amet faucibus.
+                  „Изключително съм доволна от сътрудничеството с фирмата! Като дистрибутор, те предлагат продукти с високо качество и ефективност. Персоналът е професионален и винаги готов да предостави нужната консултация. Препоръчвам ги на всеки, който търси надеждни и натурални решения за здравето на своите животни!“
                 </p>
               </div>
             </div>
