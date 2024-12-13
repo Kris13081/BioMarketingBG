@@ -59,7 +59,7 @@ function App() {
       {/* Logo section */}
       <div className="row justify-content-center py-3">
         <div className="col-md-6 text-center">
-          <img src={logo} alt="Bio Logo" className="w-50 img-fluid" />
+          <img src={logo} alt="Bio Logo" className="w-25 img-fluid" />
         </div>
       </div>
 
