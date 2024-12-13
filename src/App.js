@@ -15,7 +15,7 @@ import profileUser from "./assets/users/user.png";
 import { features } from "./data/features";
 import { benefits } from "./data/benefits";
 import { products } from "./data/products";
-import { info } from "./data/info";
+import { info } from "./data/info.js";
 
 function App() {
   const form = useRef();
@@ -277,11 +277,11 @@ function App() {
         <div className="row align-items-center">
           {/* Text Section */}
           <div className="col-lg-6 col-md-12 mb-4 mb-lg-0 d-flex flex-column justify-content-center">
-            <h1 className="display-4 fw-bold mb-3" style={{ color: "#2e2e2e" }}>
+            <h5 className="display-4 fw-bold mb-3" style={{ color: "#2e2e2e", fontSize: "32px" }}>
               Каква е ролята на биопродуктите във ветеринарната медицина и
               пчеларството?
-            </h1>
-            <p className="mb-4 fs-4 text-muted">
+            </h5>
+            <p className="mb-4 text-muted">
               Биопродуктите играят важна роля във ветеринарната медицина и
               пчеларството ,като имат за цел да подобрят здравето,
               производителността и устойчивото отглеждане на животните и
@@ -290,7 +290,7 @@ function App() {
               като:
             </p>
             <ul className="list-unstyled mb-4">
-              {benefits.map((info, index) => (
+              {info.map((info, index) => (
                 <li key={index} className="d-flex align-items-start mb-3 fs-5">
                   <img
                     src={tic}
