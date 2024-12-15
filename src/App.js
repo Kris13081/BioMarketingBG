@@ -29,10 +29,10 @@ function App() {
     setIsSubmitting(true);
     emailjs
       .sendForm(
-        "service_y9mhonh",
-        "template_y6kwk2a",
+        "service_adc4iai",
+        "template_act41cj",
         form.current,
-        "aetNBQgTvUtcgvrCu"
+        "2MOZLpvOm35gmc1x6"
       )
       .then(
         () => {
